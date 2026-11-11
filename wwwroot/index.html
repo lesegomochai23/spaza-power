@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaza Power | Bulk Load Shedding Supplies</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 3D Tilt Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <div class="bg-glow glow-cyan"></div>
+    <div class="bg-glow glow-orange"></div>
+
+    <nav>
+        <div class="logo">Spaza<span>Power</span></div>
+        
+        <div class="eskom-calculator">
+            <label>Load Shedding Stage:</label>
+            <select id="eskomStage" onchange="updateRecommendation()">
+                <option value="0">Stage 0</option>
+                <option value="1">Stage 1</option>
+                <option value="2">Stage 2</option>
+                <option value="3">Stage 3</option>
+                <option value="4">Stage 4</option>
+                <option value="5">Stage 5</option>
+                <option value="6">Stage 6 (Severe)</option>
+            </select>
+        </div>
+
+        <button class="cart-btn" onclick="toggleCart()">
+            🛒 Order (<span id="cartCount">0</span>)
+        </button>
+    </nav>
+
+    <header>
+        <h1>Keep Your Business Running.</h1>
+        <p>Premium bulk load shedding supplies for South African entrepreneurs.</p>
+        <div id="recommendationBanner" class="recommendation-banner hidden"></div>
+    </header>
+
+    <main class="product-grid" id="productGrid"></main>
+
+    <!-- Sliding Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2>Your Bulk Order</h2>
+            <button onclick="toggleCart()">✖</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalPrice">R 0.00</span>
+            </div>
+            <p id="discountMessage" class="discount-msg"></p>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
